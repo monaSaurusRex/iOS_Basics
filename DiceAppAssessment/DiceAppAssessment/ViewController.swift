@@ -22,16 +22,11 @@ class ViewController: UIViewController {
 
     @IBAction func RollDiceClicked(_ sender: Any) {
         
-        //who.what = valu
-        /*------TRAVERSE LINEAR------*/
+        //who.what = value
         var diceSides = [#imageLiteral(resourceName: "Dice_One"), #imageLiteral(resourceName: "2"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "5"), #imageLiteral(resourceName: "6")]
         
         diceImage1.image = diceSides[Int.random(in: 0...5)]
-        
-//        diceImage2.image = diceSides[Int.random(in: 0...6)]
-        
-        /*------TRAVERSE RANDOMLY------*/
-        
+        diceImage2.image = diceSides[Int.random(in: 0...5)]
     }
 }
 
