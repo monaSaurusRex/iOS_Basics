@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  AnyThingYouLike
+//  SearchingATableView
 //
-//  Created by DA MAC M1 158 on 2023/05/22.
+//  Created by DA MAC M1 158 on 2023/05/23.
 //
 
 import UIKit
@@ -10,28 +10,27 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    var cars = ["Kia", "Hyundai", "Ford", "Toyota", "BMW", "Honda", "Mazda","Mercedez","Lexus","This Car"]
+    var alphabet = ["A","B","C","D","E","F","G","H","I","J","K","LMNOP"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
     }
 }
 
-extension ViewController:UITableViewDataSource{
-
+extension ViewController:UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cars.count
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = cars[indexPath.row]
         
+        //G
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "vc_cell", for: indexPath) as? TableViewCell else{return UITableViewCell()}
+        
+        cell.name.text = "I am a cell"
         return cell
     }
-    
 }
 
