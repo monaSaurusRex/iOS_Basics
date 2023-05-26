@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
-
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
@@ -51,6 +49,19 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.beginUpdates()
+        animals.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
+    
 }
 
 extension ViewController: UISearchBarDelegate{
